@@ -9,14 +9,14 @@ import {
   FlatList,
   Text,
 } from 'react-native';
-type Props = {}
-export default class HomeScreen extends Component<Props> {
+
+export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        
       </View>
     );
   }
