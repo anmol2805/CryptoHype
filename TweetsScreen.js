@@ -11,11 +11,29 @@ import {
 } from 'react-native';
 
 export default class TweetsScreen extends React.Component {
+    state = {
+        data:[]
+    };
+    componentWillMount(){
+        this.fetchData();
+    }
+    fetchData = async() => {
+        const response = await fetch("https://www.cryptohype.live/tweets");
+        const json = await response.json();
+        this.setState({data:json.tweets});        
+    }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
+        <FlatList
+            data = {this.state.data}
+            keyExtractor = {(item,index)=>index}
+            renderItem = {({item})=>
+                <Text>
+                    {item.coin_name}
+                </Text>
+            }
+        />
       </View>
     );
   }
