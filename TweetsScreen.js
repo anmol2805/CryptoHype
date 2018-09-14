@@ -63,7 +63,7 @@ export default class TweetsScreen extends React.Component {
             <View style={styles.container}>
                 <FlatList>
                     data = {this.state.data}
-                    keyExtractor = {(item, index) => index}
+                    keyExtractor = {(item, index) => index.toString()}
                     renderItem = {this.renderItem}
                     
                 </FlatList>
